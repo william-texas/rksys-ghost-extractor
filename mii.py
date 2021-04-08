@@ -17,7 +17,11 @@ class Mii(KaitaiStruct):
         self.favorite_color = self._io.read_bits_int_be(4)
         self.favorite = self._io.read_bits_int_be(1) != 0
         self._io.align_to_byte()
-        self.mii_name = (self._io.read_bytes(20)).decode(u"utf-16be")
+        name = (self._io.read_bytes(20)).decode(u"utf-16be")
+        pre = name.encode("ascii", "ignore")
+        post = post = pre.decode()
+        post, sep, garbage = post.partition('\x00')
+        self.mii_name = post
         self.body_height = self._io.read_u1()
         self.body_weight = self._io.read_u1()
         self.avatar_id = [None] * (4)
