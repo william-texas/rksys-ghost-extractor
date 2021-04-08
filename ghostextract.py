@@ -17,6 +17,7 @@ with open('rksys.dat', 'rb+') as f:
 		f.seek(addr_list[i])
 		ghost = f.read(ghost_length)
 		ghost_list.append(ghost)
+	f.close()
 
 	for i, ghost in enumerate(ghost_list):
 		if addr_list[i] >= 2191360:
@@ -30,7 +31,8 @@ with open('rksys.dat', 'rb+') as f:
 		ghost = MkwGhosts.from_bytes(ghost_list[i])
 		mii = Mii.from_bytes(ghost.driver_mii_data)
 		filename = 'License' + license + '_' + (track_dict.get(ghost.track_id)) + '_' + str(ghost.finishing_time_minutes) + """'""" + str(ghost.finishing_time_seconds).zfill(2) + """'""" + """'""" + str(ghost.finishing_time_milliseconds).zfill(3) + '_' + (mii.mii_name) + '.rkg'
-		g = open(f'{filename}', 'wb')
-		g.write(ghost_list[i])
+		with open(f'{filename}', 'wb') as g:
+			g.write(ghost_list[i])
+			g.close()
 
 print('Successfully extracted ' + str(len(ghost_list)) +' ghosts from the rksys file.')
