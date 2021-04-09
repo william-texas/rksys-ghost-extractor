@@ -3,7 +3,7 @@ from mkw_ghosts import MkwGhosts
 from mii import Mii
 
 
-track_dict = {8:'LC', 1:'MMM', 2:'MG', 4:'TF', 5:'CM', 6:'DKS', 7:'WGM', 9:'DC', 15:'KC', 11:'MT', 3:'GV', 14:'DDR', 10:'MH', 12:'BC', 13:'RR', 16:'rPB', 20:'rYF', 25:'rGV2', 26:'rMR', 27:'rSL', 31:'rSGB', 23:'rDS', 18:'rWS', 21:'rDH', 30:'rBC3', 29:'rDKJP', 17:'rMC', 24:'rMC3', 22:'rPG', 19:'rDKM', 28:'rBC'}
+track_dict = {8:'LC', 1:'MMM', 2:'MG', 4:'TF', 0:'MC', 5:'CM', 6:'DKS', 7:'WGM', 9:'DC', 15:'KC', 11:'MT', 3:'GV', 14:'DDR', 10:'MH', 12:'BC', 13:'RR', 16:'rPB', 20:'rYF', 25:'rGV2', 26:'rMR', 27:'rSL', 31:'rSGB', 23:'rDS', 18:'rWS', 21:'rDH', 30:'rBC3', 29:'rDKJP', 17:'rMC', 24:'rMC3', 22:'rPG', 19:'rDKM', 28:'rBC'}
 
 with open('rksys.dat', 'rb+') as f:
 	addr_list = []
